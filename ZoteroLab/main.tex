@@ -3,7 +3,7 @@
 \usepackage[style=ieee]{biblatex}
 \usepackage{hyperref}
 
-\addbibresource{refs.bib}
+\addbibresource{references.bib}
 
 \title{Research Methods - Tutorial 4}
 \author{Fionn McGoldrick}
@@ -14,7 +14,7 @@
 \maketitle
 
 \begin{abstract}
-Abstract—Federated learning represents a paradigm shift in
+Federated learning represents a paradigm shift in
 machine learning, enabling collaborative model training across
 distributed datasets without centralising sensitive information.
 This related work overview examines the application of federated
@@ -30,12 +30,13 @@ and handling non-IID medical data distributions.
 \end{abstract}
 
 \section{Introduction}
+\label{sec:intro}
 The healthcare industry generates vast amounts of sensitive
 patient data that could revolutionise medical research and
 patient care through machine learning applications. However,
 strict privacy regulations such as GDPR and HIPAA, combined
 with ethical considerations around patient confidentiality, create significant barriers to traditional centralised data analysis
-approaches [1]. Federated learning emerges as a transformative solution, enabling multiple healthcare institutions to
+approaches \cite{sheller_federated_2020}. Federated learning emerges as a transformative solution, enabling multiple healthcare institutions to
 collaboratively train machine learning models while keeping
 patient data locally secured, thus addressing both regulatory
 compliance and privacy concerns that have historically limited
@@ -43,7 +44,7 @@ multi-institutional medical research collaborations.
 The remainder of this paper is organised as follows. Section
 II examines the core concepts underlying federated learning,
 including its technical architecture and privacy-preserving
-mechanisms. Section III explores specific healthcare applications where federated learning has demonstrated significant
+mechanisms. Section III explores specific healthcare applications where federated learning has demonstrated significant
 impact, from medical imaging to drug discovery. Section IV
 discusses the current challenges and future research directions,
 highlighting technical limitations and regulatory considerations. Finally, Section V concludes with a summary of federated learning’s transformative potential in healthcare, while
@@ -51,29 +52,30 @@ acknowledging the work still needed to achieve widespread
 adoption. 
 
 \section{Core Concepts}
+\label{sec:core-concepts}
 Federated learning fundamentally differs from traditional
 machine learning by bringing the computation to the data
-rather than centralising data for analysis [2]. In this distributed
+rather than centralising data for analysis \cite{rieke_future_2020}. In this distributed
 learning paradigm, a global model is trained collaboratively
 by aggregating locally computed updates from participating
 institutions, each maintaining complete control over their
 patient data. The process typically involves a central server
 coordinating training by sending model parameters to participating hospitals or clinics, which then train the model on their
 local data and return only the updated parameters, not the raw
-data [3].
+data \cite{xu_federated_2021}.
 The mathematical foundation of federated learning relies
 on techniques such as Federated Averaging (FedAvg), which
 aggregates model updates from multiple clients using weighted
-averaging based on the size of their local datasets [4]. This approach ensures that institutions with larger patient populations
+averaging based on the size of their local datasets \cite{xu_federated_2021}. This approach ensures that institutions with larger patient populations
 contribute proportionally to the global model while maintaining data privacy. Recent advances have introduced differential
 privacy mechanisms and secure multi-party computation protocols to further enhance privacy guarantees, making federated
 learning particularly suitable for sensitive medical applications
 where even model updates might reveal patient information
-[5].
+\cite{rieke_future_2020}.
 Healthcare-specific implementations of federated learning
 must address unique challenges, including heterogeneous data
 distributions across institutions, varying data quality standards,
-and the need for model interpretability in clinical decisionmaking [6]. Medical data often exhibits significant non-IID
+and the need for model interpretability in clinical decisionmaking \cite{suk_privacy-preserving_2019}. Medical data often exhibits significant non-IID
 (non-independent and identically distributed) characteristics
 due to demographic differences, varying diagnostic equipment,
 and institutional protocols, requiring specialised federated
@@ -81,9 +83,10 @@ learning algorithms that can handle such heterogeneity while
 maintaining model performance
 
 \section{Healthcare Application}
+\label{sec:health-application}
 Federated learning has demonstrated remarkable success
 across diverse medical applications, particularly in medical
-imaging analysis. Brisimi et al. [7] pioneered the application
+imaging analysis. Brisimi et al. \cite{brisimi_federated_2018} pioneered the application
 of federated learning for predicting hospitalisations in heart
 disease patients, demonstrating that federated models could
 achieve performance comparable to centralised approaches
@@ -94,7 +97,7 @@ recommendations based on distributed patient data analysis.
 In the domain of medical imaging, federated learning has
 enabled unprecedented multi-institutional collaborations for
 brain tumour segmentation, COVID-19 detection, and cancer
-diagnosis [4], [5]. The ability to train deep learning models on
+diagnosis \cite{suk_privacy-preserving_2019,chen_fedhealth_2020,rieke_future_2020}. The ability to train deep learning models on
 diverse imaging datasets from multiple hospitals without data
 sharing has proven particularly valuable during the COVID-19
 pandemic, where rapid model development across international
@@ -102,11 +105,11 @@ boundaries was crucial. Studies have shown that federated
 learning models trained on chest X-rays from hospitals across
 different continents achieved 94\% accuracy in COVID-19
 detection, surpassing models trained on single-institution data
-[6].
+\cite{xu_federated_2021}.
 Drug discovery and pharmacovigilance represent emerging
 applications where federated learning facilitates collaboration
 between pharmaceutical companies, research institutions, and
-regulatory bodies [1], [3]. By enabling secure analysis of
+regulatory bodies \cite{sheller_federated_2020,xu_federated_2021}. By enabling secure analysis of
 adverse drug reactions across multiple databases without exposing proprietary information or patient records, federated
 learning accelerates the identification of drug safety signals
 while maintaining competitive advantages and regulatory compliance. Recent implementations have demonstrated the ability
@@ -114,16 +117,17 @@ to predict drug-drug interactions with 89\% accuracy using federated learning ac
 improving upon traditional pharmacovigilance methods.
 
 \section{Challenges \& Future Directions}
-Despite promising advances, federated learning in healthcare faces substantial technical and regulatory challenges
+\label{sec:challenges-future-directions}
+Despite promising advances, federated learning in healthcare faces substantial technical and regulatory challenges
 that require continued research attention. Communication efficiency remains a critical bottleneck, as medical models often
 require frequent parameter updates between institutions with
 varying network capabilities, and the large size of medical
 imaging models can make federated training prohibitively
-expensive in terms of bandwidth [2].
+expensive in terms of bandwidth \cite{rieke_future_2020}.
 The interpretability of federated learning models poses
 unique challenges in clinical settings where healthcare
 providers require explanations for model predictions to ensure
-patient safety and maintain trust [3]. Future research must
+patient safety and maintain trust \cite{xu_federated_2021}. Future research must
 focus on developing explainable federated learning techniques
 that can provide institution-specific interpretations while maintaining the privacy guarantees that make federated learning
 attractive for healthcare applications. Furthermore, addressing
@@ -133,6 +137,7 @@ research question that will determine the practical applicability
 of federated learning in global health initiatives.
 
 \section{Conclusion}
+\label{sec:conc}
 This related work overview has examined the transformative
 potential of federated learning in healthcare, demonstrating
 how this technology addresses critical privacy and regulatory
@@ -147,8 +152,28 @@ data sovereignty, federated learning will likely become a
 fundamental technology for advancing medical research and
 improving patient care globally. 
 
-\section{Appendix}
+\appendices
+\section{Reference Management}
+\label{appendix:ref-management}
 
+Figure~\ref{fig:zotero} shows a screenshot of the Zotero desktop app, the
+reference management system used in this paper, where one
+can see:
+\begin{itemize}
+    \item The “Tutorial Exercises” collection selected in the top-left panel.
+    \item All the collection’s references in the centre panel, with one about Federated Learning selected.
+    \item The reference’s metadata in the right panel.
+    \item The collection’s tags in the bottom-left panel.
+\end{itemize}
 
+\begin{figure*}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{ss1.png}
+    \caption{ Zotero reference library for federated learning in healthcare related work overview an some extra sources on evolutionary computation applied to
+    machine learning.}
+    \label{fig:zotero}
+\end{figure*}
+
+\printbibliography
 
 \end{document}
