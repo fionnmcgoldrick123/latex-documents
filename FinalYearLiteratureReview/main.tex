@@ -1,14 +1,212 @@
-\documentclass{article}
-\usepackage{graphicx} % Required for inserting images
+%% by Michael Shell
+%% Edited and expanded by Dominic Carr
+%% Edited and expanded by Douglas Mota Dias
 
-\title{Development of an AI-Powered Web Platform For Code Practice and Learning Platform}
+\documentclass[10pt,journal,compsoc]{IEEEtran}
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+\usepackage{lipsum} 
+\usepackage{hyperref}
+\usepackage{biblatex}
+\usepackage{graphicx}
+\usepackage{cleveref}
+
+\graphicspath{{images/}}
+
+\addbibresource{refs.bib}
+
+\title{Integrating Large Language Models into Programming Education: Opportunities, Challenges, and Learning Impacts}
+
 \author{Fionn McGoldrick}
-\date{November 2025}
+
+\markboth{Research Methods in Computing \& IT -- Literature Review}{}
+
+\IEEEtitleabstractindextext{
+    \begin{abstract}
+        \textit{This literature review looks at how Large Language Models (LLMs) are being used in programming education and what that means for students and teachers. Recent studies show that LLMs can explain code, give quick feedback, and help beginners understand difficult concepts in a more accessible way. They can reduce confusion, speed up problem-solving, and make learning feel more personalised. However, the research also points out real challenges. LLMs can produce incorrect answers, students may become too dependent on them, and there are concerns about plagiarism and reduced practice. Some studies report improved understanding when LLMs are used as support tools, while others show little benefit if students rely on them to generate full solutions. Overall, the review suggests that LLMs work best when used to guide and support learning rather than replace actual coding practice. The goal of this paper is to summarise what current research says, highlight the benefits and risks, and point out what still needs to be explored in the future.}
+    \end{abstract}
+}
 
 \begin{document}
 
 \maketitle
 
 \section{Introduction}
+\label{sec:introduction}
+
+\IEEEPARstart{L}{earning} to code is one of the most important skills in today's world, but teaching it effectively to large groups of students has always been a major struggle. Teachers often can't give each student the energy and personalised help that they need, and getting instant, helpful feedback on code errors is tough. This has all changed since the sudden appearance of Large Language Models (LLMs). Tools like ChatGPT and GitHub Copilot can write, explain, and fix code with impressive skill. This new technology is shaking up programming classes, creating huge potential for improvement, but also causing confusion and concern.
+
+This literature review is designed to take an in-depth look at the burgeoning intersection of Large Language Models and programming education. The rapid integration of these advanced AI tools into software development workflows necessitates a thorough examination of their role within the pedagogical landscape of computer science instruction. I aim to synthesise current empirical and theoretical literature to provide a balanced overview of this transformative technology's influence on how students learn to code and how educators teach it.
+
+\section{Background and Context}
+Before diving into the specific impact of Large Language Models (LLMs), it’s crucial to understand the long-standing hurdles in programming education that these new tools promise to address. Historically, teaching introductory programming, often designated as CS1, has been notoriously challenging for both educators and students.
+
+\subsection{Traditional Obstacles in Education}
+Teaching programming requires students to master several complex, interconnected skills simultaneously, often leading to high rates of initial frustration and failure. Key traditional difficulties include:
+\begin{itemize}
+    \item \textbf{Cognitive overload and difficult ideas:} Learning to program often requires students to change how they normally think. Instead of using everyday reasoning, they must follow strict, step-by-step computer logic. Ideas like variable scope, loops, conditionals, and data abstraction can feel confusing because beginners have to imagine a moving process by only looking at still text. Some topics, such as pointers and recursion, are known to be especially challenging for new learners. Rachel Cardell-Oliver presents a strong discussion of this issue in her paper How Students Experience Learning to Program. She notes that “in the literature … particular aspects of pedagogy (the way computer programming is taught) lead to cognitive overload, and therefore that new, research-led approaches to instructional design will address the problem” \cite{Cardell-Oliver2014}.
+    \item \textbf{Limited feedback and support:} In traditional classroom settings, students often receive feedback on their code long after submitting assignments, which slows down learning. Debugging is a skill that develops through timely and iterative practice, but when feedback is delayed or vague, students struggle to identify and correct misconceptions. Large class sizes make it difficult for instructors to provide detailed, individualised help, leaving many learners stuck on small syntax or logic errors that hinder conceptual understanding.
+\end{itemize}
+
+\section{Methodology}
+
+This literature review uses a qualitative, document-based methodology focused on analysing peer-reviewed research published between 2021 and 2025. All sources were selected from recognised academic venues, including ACM conferences, IEEE proceedings, MDPI journals, and arXiv preprints. The review concentrates on studies that examine the role of Large Language Models (LLMs) in computer science and programming education.
+
+Source selection was guided by three criteria: (1) clear relevance to LLMs or AI-based tools in education, (2) a focus on programming, feedback, or adaptive learning, and (3) methodological soundness. This resulted in a set of representative works, including surveys on LLMs in education \cite{10.1145/3641554.3701863}, empirical studies evaluating AI-generated feedback \cite{Jacobs_2024, Yousef2025}, investigations into learning outcomes \cite{app14104115}, and research on adaptive learning systems \cite{educsci13121216, katona_ai-based_2025}. Foundational papers on code generation and tutoring systems were also included to provide context, such as work on question generation \cite{srivastava-goodman-2021-question}, error-message improvement \cite{Leinonen2022}, and early evaluations of Codex in programming education \cite{FinnieAnsley2022}.
+
+The review applies a thematic synthesis approach. Each selected paper was read and coded for its main contribution. These contributions were then grouped into key themes commonly discussed in the literature: applications of LLMs (such as explanation, debugging, and feedback), benefits and opportunities for learners, risks and limitations, effects on student performance, and pedagogical implications for instructors.
+
+This method allows the findings of different studies to be compared and combined to produce an integrated understanding of how LLMs are currently used in programming education. Papers raising ethical or pedagogical concerns \cite{Kasneci2023, Deriba2023} were also included to ensure a balanced perspective. Historical work on traditional programming difficulties \cite{Cardell-Oliver2014} was used to contextualise the challenges that LLMs aim to address.
+
+Only peer-reviewed or formally archived research was included. Informal articles, editorials, and non-academic commentary were excluded to maintain academic quality. All citations follow BibLaTeX formatting for consistency throughout the review.
+
+\section{Applications of LLMs in Programming Education}
+LLMs are being used in several practical ways in programming education, from guiding learners to debugging and automating feedback. The most common applications include:
+
+
+\subsection{Code Generation}
+LLMs like Codex and GPT-4 are capable of generating code based on natural language prompts. This has been used in classrooms to help students prototype solutions and experiment with different problem-solving strategies \cite{Phung2023, FinnieAnsley2022}. Instructors have also used these tools to generate template code or variations of problems, helping reduce content creation time. However, it's emphasized that students benefit most when they treat generated code as a starting point and actively analyse it \cite{Yousef2025}.
+
+
+\subsection{Code Explanation}
+One of the most appreciated applications is using LLMs to explain what code does in plain language. Tools like ChatGPT have been praised for providing helpful breakdowns of logic, variables, and structures, especially for beginners \cite{Deriba2023, Leinonen2022}. This lowers the cognitive barrier for those struggling to interpret syntax or understand how lines of code interact.
+
+
+\subsection{Debugging Support}
+Debugging is a core skill in programming, and LLMs have been applied to support this by analysing buggy code and suggesting fixes \cite{Leinonen2022, Jacobs_2024}. This includes identifying likely mistakes, generating corrected versions, or walking students through possible causes of errors. Some systems are even integrated into IDEs to offer real-time debugging feedback as students code.
+
+
+\subsection{Feedback Generation}
+LLMs are also being tested and deployed in automated grading and feedback systems. For instance, the BeGrading framework uses LLMs to evaluate student submissions and generate personalised feedback on errors and code quality \cite{Yousef2025}. These applications can scale feedback delivery, making it immediate and detailed, especially in large classes.
+
+
+These applications are transforming how instructors manage workload and how students interact with code. However, the effectiveness of each depends on the context of use and the level of guidance provided to learners \cite{Kasneci2023, Deriba2023}.
+
+\section{Benefits and Opportunities}
+The integration of Large Language Models (LLMs) into programming education has opened up a wide range of new possibilities for both learners and educators. These models are not just tools for code generation—they are reshaping how feedback, support, and instructional content can be delivered at scale and in real time.
+
+\subsection{On-Demand Support and Feedback}
+One of the most prominent benefits of LLMs is their ability to offer students immediate support. Students can ask questions in natural language and receive explanations, code suggestions, or hints in real-time, making them feel more supported outside of traditional classroom hours \cite{Kasneci2023}. This round-the-clock access improves flexibility and encourages self-paced learning \cite{Deriba2023}.
+
+
+\subsection{Personalised Learning Pathways}
+LLMs can adjust the complexity and content of their responses based on student input, allowing for more personalised education. Adaptive feedback systems powered by LLMs can tailor content, explanations, and challenges to each student's ability level \cite{educsci13121216, katona_ai-based_2025}. This supports differentiation in classrooms and allows students to progress at their own pace.
+
+
+\subsection{Enhanced Engagement and Confidence}
+Research shows that students feel more confident and engaged when they can interact with LLMs to clarify misunderstandings or test ideas \cite{wang2024largelanguagemodelseducation}. This autonomy can increase motivation and reduce frustration, especially among beginners who may hesitate to ask for help from instructors \cite{Deriba2023}.
+
+
+\subsection{Assistance in Curriculum Development}
+Instructors benefit from LLMs by using them to design exercises, generate example code, and assess the difficulty of programming tasks \cite{10.1145/3641554.3701863}. This saves time and enhances the variety and richness of instructional material without compromising on quality.
+
+
+\subsection{Improved Accessibility}
+LLMs can act as an equaliser for students with limited access to traditional tutoring or support services. By integrating LLMs into e-learning platforms, institutions can provide high-quality explanations and debugging support at scale, potentially reducing educational gaps \cite{katona_ai-based_2025, Kasneci2023}.
+
+
+Together, these opportunities suggest that when used responsibly, LLMs have the potential to enhance both teaching and learning experiences in programming education across diverse contexts and learner populations.
+
+\section{Challenges and Limitations}
+While LLMs present many promising applications in programming education, they also introduce notable challenges that must be addressed to ensure effective and ethical use.
+
+\subsection{Over-reliance and Reduced Problem-Solving Skills}
+A recurring concern in the literature is that students may become overly dependent on LLMs, using them to bypass rather than develop problem-solving abilities. Jošt et al. found that increased LLM usage for tasks involving code generation and debugging correlated with lower final grades, especially on assessments requiring critical thinking \cite{app14104115}. This suggests that students relying heavily on AI may miss opportunities to engage deeply with programming concepts.
+
+\subsection{Accuracy and Hallucination}
+Despite their capabilities, LLMs are not always reliable. They can generate plausible-looking but incorrect code or explanations—a phenomenon often referred to as “hallucination” \cite{Kasneci2023}. When learners are inexperienced, they may fail to detect such errors, leading to confusion and reinforcement of misconceptions \cite{Deriba2023}.
+
+\subsection{Academic Integrity}
+The ability of LLMs to produce entire assignments raises ethical concerns around plagiarism and originality. Without clear guidelines, students may submit AI-generated solutions as their own work \cite{10.1145/3641554.3701863}. This has prompted educators to reconsider how assessments are structured and to implement new forms of AI usage policies and detection methods.
+
+\subsection{Bias and Ethical Concerns}
+LLMs trained on large-scale datasets may inadvertently reproduce societal biases or stereotypes in their output \cite{Kasneci2023}. This introduces the risk of exposing students to inappropriate content or biased advice, especially if these systems are used widely in educational settings without content filtering.
+
+\subsection{Lack of Transparency and Explainability}
+LLMs often provide answers without a transparent reasoning process, making it difficult for both students and instructors to understand the basis of a given output. This lack of explainability may limit their usefulness in contexts where interpretability is essential \cite{wang2024largelanguagemodelseducation}.
+
+\subsection{Technical and Pedagogical Constraints}
+There are practical barriers to using LLMs effectively. These include access to computing infrastructure, integration with learning management systems, and the need for teacher training \cite{educsci13121216}. Pedagogically, it is still unclear how best to scaffold student interaction with LLMs to ensure learning gains rather than shortcuts.
+
+Despite their promise, LLMs must be thoughtfully integrated into education systems to avoid undermining foundational skills and academic integrity. Many of these limitations can be addressed through appropriate policy design, instructional framing, and continuous evaluation of their educational impact.
+
+
+\section{Impact on Learning Outcomes}
+
+Understanding how LLMs affect student performance and long-term learning is critical to evaluating their place in programming education. Current research presents a mixed but insightful picture regarding their influence on outcomes such as grades, engagement, and skill development.
+
+\subsection{Performance Metrics}
+Several studies have examined whether students using LLMs perform better in assessments and coursework. A meta-analysis by Wang and Fan found that AI tools like ChatGPT had a significant positive impact on students’ immediate performance, particularly in lower-order tasks such as syntax correction and basic algorithm implementation \cite{wang2024largelanguagemodelseducation}. However, Jošt et al. reported a negative correlation between frequent LLM use and final grades in programming courses when students relied on LLMs to complete entire tasks rather than understand the material \cite{app14104115}. These findings suggest that the performance benefits of LLMs depend heavily on how they are used.
+
+\subsection{Engagement and Retention}
+LLMs have shown promise in increasing student engagement. Tools like ChatGPT can respond to questions in natural language, which helps lower the barrier to asking for help \cite{Deriba2023}. This has been linked to improved retention rates, especially in online or self-paced courses where students often struggle in isolation \cite{educsci13121216}. The adaptive and conversational nature of LLMs contributes to a more interactive learning environment, which can motivate students to stay engaged with programming tasks.
+
+\subsection{Skill Development}
+While LLMs can help students complete assignments, there are concerns about whether they foster deeper skill acquisition. Research by Jacobs and Jaschke shows that AI-generated feedback can help students identify specific weaknesses in their code and improve iteratively \cite{Jacobs_2024}. On the other hand, Raihan et al. caution that LLMs may inhibit the development of independent debugging and problem decomposition skills if students rely on AI-generated solutions without critical reflection \cite{10.1145/3641554.3701863}. Thus, LLMs appear most beneficial when used as scaffolding tools, not as substitutes for learning-by-doing.
+
+Overall, LLMs can improve performance and engagement under guided conditions, but overuse or misuse can hinder the development of essential problem-solving and coding skills. The impact on learning outcomes is therefore not fixed, but highly dependent on instructional design and student behavior.
+
+
+\section{Adaptive Learning and Personalization}
+
+One of the most compelling advantages of LLMs in programming education is their potential to support adaptive learning environments that respond dynamically to student needs. Unlike static resources, LLMs can adjust explanations, challenges, and feedback based on a learner’s current progress or query complexity.
+
+\subsection{Individualized Feedback and Scaffolding}
+LLMs can tailor their responses to each student’s level of understanding. For example, a beginner might receive a basic explanation of a loop, while an advanced learner could be challenged with optimization techniques. This adaptability creates a more personalized learning experience and allows students to move at their own pace \cite{educsci13121216}. The BeGrading framework exemplifies this by generating individualized feedback based on common error patterns and student input \cite{Yousef2025}.
+
+\subsection{Adaptive Assessment and Content Generation}
+Some systems now integrate LLMs to generate practice problems or quizzes tailored to the learner’s strengths and weaknesses. These systems can increase task difficulty incrementally or repeat misunderstood concepts until mastery is achieved \cite{katona_ai-based_2025}. This type of adaptive curriculum has been especially effective in supporting students from disadvantaged backgrounds by filling knowledge gaps without requiring intensive instructor oversight.
+
+\subsection{Conversational Tutoring and Dynamic Interaction}
+LLMs facilitate natural language interaction, which makes them suitable for conversational tutoring. Students can engage in back-and-forth dialogue, asking follow-up questions or requesting simpler explanations. This interaction mimics the scaffolding typically offered by human tutors \cite{srivastava-goodman-2021-question}. Chat-based tutoring can be particularly beneficial in asynchronous learning environments where real-time instructor support is not available.
+
+\subsection{Personalization at Scale}
+Perhaps the most transformative aspect is the ability to deliver personalized education at scale. Unlike one-on-one tutoring, which is resource-intensive, LLMs can provide custom support to hundreds or thousands of students simultaneously. This scalability enables institutions to offer individualized learning experiences even in large introductory programming courses \cite{Kasneci2023}.
+
+In summary, LLMs have strong potential to support adaptive learning and personalization by offering tailored feedback, dynamic assessment, and conversational guidance. These capabilities can help close achievement gaps and empower learners to take control of their educational journey.
+
+
+\section{Pedagogical Implications}
+
+The introduction of LLMs into programming education requires educators to rethink traditional teaching strategies and classroom practices. While these tools offer significant instructional support, their integration raises important questions around curriculum design, assessment methods, and teacher roles.
+
+\subsection{Shifting Instructional Roles}
+As LLMs become more capable of providing immediate feedback and explanations, instructors may need to shift their focus from delivering content to facilitating critical thinking and metacognitive strategies. Teachers are no longer the sole source of information but become guides who help students evaluate and apply AI-generated content appropriately \cite{Kasneci2023}.
+
+\subsection{Designing AI-Resilient Assessments}
+To uphold academic integrity and ensure genuine skill development, assessments must evolve. Traditional programming tasks that LLMs can easily solve may not effectively measure student understanding. As a result, educators are increasingly incorporating process-oriented assessments, such as code walkthroughs, oral exams, or reflective writing, which emphasize reasoning over results \cite{10.1145/3641554.3701863, app14104115}.
+
+\subsection{Scaffolding and Responsible Use}
+Students must be taught not only how to program, but also how to interact productively and ethically with LLMs. This includes understanding when and how to use AI tools, verifying outputs, and documenting their usage transparently. Institutions are beginning to introduce AI literacy components into the curriculum to address this need \cite{wang2024largelanguagemodelseducation}.
+
+\subsection{Teacher Training and Policy Development}
+Effective integration of LLMs also depends on equipping educators with the skills and resources to use these tools effectively. Many instructors remain unfamiliar with prompt engineering or unsure of how to support responsible use in the classroom. Professional development programs and clear institutional guidelines are essential to address these gaps \cite{Deriba2023, Kasneci2023}.
+
+\subsection{Equity and Access}
+While LLMs can help democratize access to quality support, they can also widen digital divides if access is uneven. Pedagogical planning should account for infrastructure disparities and ensure all students have fair opportunities to use these tools \cite{katona_ai-based_2025}.
+
+In short, the pedagogical implications of LLMs are broad and significant. To fully realize their educational potential, educators must proactively adapt teaching practices, develop ethical AI policies, and support learners in becoming thoughtful, critical users of AI technologies.
+
+\section{Future Research Directions}
+Although LLMs are becoming more common in programming education, many aspects of their impact remain underexplored. Most current studies focus on short-term academic performance, leaving a gap in understanding their long-term effects on student learning, retention, and problem-solving development \cite{app14104115, Jacobs_2024}. 
+
+Further research should also explore how LLMs can be best integrated into classroom practices. Questions remain about the right balance between human instruction and AI assistance, how to scaffold LLM usage effectively, and how to teach students to engage critically with AI-generated content \cite{Kasneci2023}.
+
+\subsection{Equity and Ethics}
+One particularly important area for future research is the ethical and equitable use of LLMs. While these tools offer the potential to personalize learning and improve accessibility, they also risk reinforcing existing inequalities if not implemented carefully \cite{katona_ai-based_2025}. Studies should examine how LLMs perform across diverse student populations and how to ensure all learners benefit fairly. Additionally, further work is needed to address the risks of bias, misinformation, and inappropriate content in AI responses \cite{wang2024largelanguagemodelseducation, Kasneci2023}.
+
+In short, the next wave of research should prioritize sustainable, inclusive, and pedagogically sound uses of LLMs to maximize their educational impact.
+
+\section{Conclusion}
+Large Language Models are rapidly reshaping how programming is taught and learned. Their ability to generate code, explain concepts, offer instant feedback, and support personalized learning has introduced new opportunities in computing education. Studies suggest that when used responsibly, LLMs can increase engagement, improve access to support, and enhance learning outcomes—particularly for students who benefit from adaptive or self-paced instruction.
+
+However, these advantages are accompanied by real challenges. Concerns around over-reliance, academic integrity, and the accuracy of AI-generated outputs must be taken seriously. Without clear guidance and thoughtful integration, LLMs risk becoming shortcuts rather than support systems, potentially undermining the development of core problem-solving skills.
+
+Educators must rethink assessment practices, equip students with AI literacy, and implement policies that ensure fair and ethical use. Meanwhile, researchers must continue investigating how to maximize the benefits of LLMs while minimizing harm—particularly for underserved learners.
+
+In summary, LLMs offer powerful tools that, if embedded wisely, can transform programming education. Their effectiveness ultimately depends on how they are used, who they are accessible to, and how we as educators, researchers, and students choose to engage with them.
+
+\printbibliography
 
 \end{document}
