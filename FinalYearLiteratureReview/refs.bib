@@ -96,7 +96,8 @@
   volume    = {41},
   pages     = {196--216},
   issn      = {0311-2543},
-  publisher = {The University of Western Australia}
+  publisher = {The University of Western Australia},
+  url       = {https://research-repository.uwa.edu.au/}
 }
 
 @article{Kasneci2023,
@@ -140,10 +141,10 @@
   url = {https://arxiv.org/abs/2210.11630}
 }
 
-@article{Deriba2023,
+@inproceedings{Deriba2023,
   author = {Deriba, Fitsum Gizachew and Sanusi, Ismaila Temitayo and Oyelere, Amos},
   title = {Enhancing Computer Programming Education Using ChatGPT: A Mini Review},
-  journal = {Proceedings of the 23rd Koli Calling Conference},
+  booktitle = {Proceedings of the 23rd Koli Calling Conference},
   year = {2023},
   doi = {10.1145/3631802.3631848},
   url = {https://doi.org/10.1145/3631802.3631848}
@@ -219,4 +220,60 @@
   number = {1},
   year = {2024},
   url = {https://stel.pubpub.org/pub/04-01-batsaikhan-correia}
+}
+
+@article{10.1145/3617367,
+author = {Prather, James and Reeves, Brent N. and Denny, Paul and Becker, Brett A. and Leinonen, Juho and Luxton-Reilly, Andrew and Powell, Garrett and Finnie-Ansley, James and Santos, Eddie Antonio},
+title = {“It’s Weird That it Knows What I Want”: Usability and Interactions with Copilot for Novice Programmers},
+year = {2023},
+issue_date = {February 2024},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {31},
+number = {1},
+issn = {1073-0516},
+url = {https://doi.org/10.1145/3617367},
+doi = {10.1145/3617367},
+abstract = {Recent developments in deep learning have resulted in code-generation models that produce source code from natural language and code-based prompts with high accuracy. This is likely to have profound effects in the classroom, where novices learning to code can now use free tools to automatically suggest solutions to programming exercises and assignments. However, little is currently known about how novices interact with these tools in practice. We present the first study that observes students at the introductory level using one such code auto-generating tool, Github Copilot, on a typical introductory programming (CS1) assignment. Through observations and interviews we explore student perceptions of the benefits and pitfalls of this technology for learning, present new observed interaction patterns, and discuss cognitive and metacognitive difficulties faced by students. We consider design implications of these findings, specifically in terms of how tools like Copilot can better support and scaffold the novice programming experience.},
+journal = {ACM Trans. Comput.-Hum. Interact.},
+month = nov,
+articleno = {4},
+numpages = {31},
+keywords = {OpenAI, novice programming, LLM, large language models, introductory programming, HCI, GPT-3, GitHub, CS1, Copilot, Codex, automatic code generation, Artificial Intelligence, AI}
+}
+
+@inproceedings{10.1145/3639474.3640076,
+author = {Xue, Yuankai and Chen, Hanlin and Bai, Gina R. and Tairas, Robert and Huang, Yu},
+title = {Does ChatGPT Help With Introductory Programming?An Experiment of Students Using ChatGPT in CS1},
+year = {2024},
+isbn = {9798400704987},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3639474.3640076},
+doi = {10.1145/3639474.3640076},
+abstract = {Generative AI, notably ChatGPT, has garnered attention in computer science education. This paper presents a controlled experiment that explores ChatGPT's role in CS1 in a classroom setting. Specifically, we aim to investigate the impact of ChatGPT on student learning outcomes and their behaviors when working on programming assignments. Participants were tasked with creating a UML diagram and subsequently implementing its design through programming, followed by a closed-book post-evaluation and a post-survey. All the participants were required to screen-record the whole process. In total, 56 participants were recruited, with 48 successful screen recordings. Participants in the Experimental Group can access ChatGPT 3.5 and other online resources, such as Google and Stack Overflow when creating the UML diagram and programming; however, participants in the Control Group can access all online resources except for ChatGPT (i.e., the only design variable is the access to ChatGPT). Finally, we measured and analyzed participants' learning outcomes through their UML diagram, programming, and post-evaluation scores. We also analyzed the time participants took to complete the tasks and their interactions with ChatGPT and other resources from the screen recordings. After finishing the tasks, student participants also provided their perceptions of using ChatGPT in CS1 through a post-survey.With rigorous quantitative and qualitative analysis, we found that (1) using ChatGPT does not present a significant impact on students' learning performance in the CS1 assignment-style tasks; (2) once using ChatGPT, students' tendency to explore other traditional educational resources is largely reduced (though available) and they tend to rely solely on ChatGPT, and this reliance on ChatGPT did not guarantee enhanced learning performance; (3) the majority of students hold neutral views on ChatGPT's role in CS1 programming but most of them raised concerns about its potential ethical issues and inconsistent performance across different tasks. We hope this study can help educators and students better understand the impact of ChatGPT in CS1 and inspire future work to provide proper guidelines for using ChatGPT in introductory programming classes.},
+booktitle = {Proceedings of the 46th International Conference on Software Engineering: Software Engineering Education and Training},
+pages = {331–341},
+numpages = {11},
+keywords = {CS education, CS1, generative AI, ChatGPT, OOP},
+location = {Lisbon, Portugal},
+series = {ICSE-SEET '24}
+}
+
+@inproceedings{10.1145/3696630.3727236,
+author = {Grandel, Skyler and Schmidt, Douglas and Leach, Kevin},
+title = {Applying Large Language Models to Enhance the Assessment of Java Programming Assignments},
+year = {2025},
+isbn = {9798400712760},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3696630.3727236},
+doi = {10.1145/3696630.3727236},
+abstract = {The assessment of programming assignments in computer science (CS) education traditionally relies on manual grading, which strives to provide comprehensive feedback on correctness, style, efficiency, and other software quality attributes. As class sizes increase, however, it is hard to provide detailed feedback consistently, especially when multiple assessors are required to handle a larger number of assignment submissions. Large Language Models (LLMs), such as ChatGPT, Claude, and Gemini, offer a promising alternative to help automate this assessment process in a consistent, scalable, and fair manner.This paper explores the efficacy of ChatGPT-4 and other popular LLMs in automating programming assignment assessment. We conduct a series of studies within multiple Java-based CS courses at Vanderbilt University, comparing LLM-generated assessments to those produced by human graders. The analysis focuses on key metrics, such as accuracy, precision, recall, efficiency, and consistency, to identify programming mistakes based on predefined rubrics. Our findings demonstrate that LLMs improve grading objectivity and efficiency with appropriate prompt engineering and feature selection, serving as a valuable complementary tool to human graders in undergraduate and graduate CS education.},
+booktitle = {Proceedings of the 33rd ACM International Conference on the Foundations of Software Engineering},
+pages = {789–799},
+numpages = {11},
+keywords = {ChatGPT, education, generative AI, large language models, prompt engineering, automated grading},
+location = {Clarion Hotel Trondheim, Trondheim, Norway},
+series = {FSE Companion '25}
 }
